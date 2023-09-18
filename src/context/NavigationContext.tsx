@@ -22,17 +22,15 @@ interface ContextProvider {
 
  export function AuthContextProvider({children}: ContextProvider){
    const [authToken, setAuthToken] = useState<string>('');
-
-   useEffect(() => {
+    useEffect(() => {
       async function fetchToken() {
          const token = await AsyncStorage.getItem('token');
-
-         if(token) {
+         if(token){
             setAuthToken(token)
          }
       }
       fetchToken()
-   }, [])
+    }, [])
 
    function authenticate(token) {
       setAuthToken(token);

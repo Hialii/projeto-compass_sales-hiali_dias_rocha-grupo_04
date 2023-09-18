@@ -17,6 +17,7 @@ interface AuthForm {
 export function AuthForm({ isLogin, onSubmit, credentialsInvalid }: AuthForm) {
   const [enteredEmail, setEnteredEmail] = useState('');
   const [enteredPassword, setEnteredPassword] = useState('');
+  const [enteredName, setEnteredName] = useState('')
  
 
   const {
@@ -24,7 +25,7 @@ export function AuthForm({ isLogin, onSubmit, credentialsInvalid }: AuthForm) {
     password: passwordIsInvalid,
   } = credentialsInvalid;
 
-  function updateInputValueHandler(inputType: 'email' | 'password', enteredValue: string) {
+  function updateInputValueHandler(inputType: 'email' | 'password' | 'name', enteredValue: string) {
     switch (inputType) {
       case 'email':
         setEnteredEmail(enteredValue);
@@ -32,6 +33,9 @@ export function AuthForm({ isLogin, onSubmit, credentialsInvalid }: AuthForm) {
       case 'password':
         setEnteredPassword(enteredValue);
         break;
+        case 'name':
+          setEnteredName(enteredName);
+          break;
     }
   }
 
@@ -45,8 +49,15 @@ export function AuthForm({ isLogin, onSubmit, credentialsInvalid }: AuthForm) {
   return (
     <View>
     <View>
+      {!isLogin ? <Input 
+        label="Name"
+        onUpdateValue={setEnteredName}
+        value={enteredName}
+        keyboardType="default"
+        isInvalid={false} />
+      : null}
       <Input
-        label="Email Address"
+        label="Email"
         onUpdateValue={(value) => updateInputValueHandler('email', value)}
         value={enteredEmail}
         keyboardType="email-address"

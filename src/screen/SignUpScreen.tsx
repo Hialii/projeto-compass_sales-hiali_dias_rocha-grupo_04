@@ -1,6 +1,6 @@
 import React, {useState, useContext} from 'react';
 import { AuthContent } from '../auth/AuthContent';
-import { createUser } from '../firebase/auth';
+import { createUser } from '../firebase/auth1';
 import LoadingOverlay from '../component/LoadingOverlay';
 import {Alert} from 'react-native';
 import { AuthContext } from '../context/NavigationContext';
@@ -18,8 +18,8 @@ export function SignUpScreen() {
       authCtx.authenticate(token);
    }catch (error) {
       Alert.alert('Authentication Failed. Try again');
+      setIsAuthentiating(false);
    }
-   setIsAuthentiating(false);
 }
 
    if(isAuthenticating) {

@@ -1,4 +1,4 @@
-import axios, {AxiosResponse} from 'axios'
+import axios, {AxiosResponse} from 'axios';
 
 const KEY = 'AIzaSyBcRuadd7cuL0DhfW4sHFAs1h_v_lblDEs';
 

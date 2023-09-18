@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { Alert, View } from 'react-native';
+import { Alert, View, StyleSheet, Image } from 'react-native';
 import { FlatButton } from '../component/FlatButton';
 import { AuthForm } from './AuthForm';
 import {useNavigation} from '@react-navigation/native';
+import { Title } from '../component/Title';
+import { TextGuide } from '../component/TextGuide';
 
 interface CredentialsInvalid {
   email: boolean;
@@ -21,11 +23,10 @@ export function AuthContent({ isLogin, onAuthenticate }: AuthContentProps) {
     email: false,
     password: false,
   });
-
   function switchAuthModeHandler() {
    console.log('Switching auth mode');
     if (isLogin) {
-      navigation.navigate('SignUp');
+      navigation.navigate('ForgotPassword');
     } else {
       navigation.navigate('Login');
     }
@@ -41,8 +42,8 @@ export function AuthContent({ isLogin, onAuthenticate }: AuthContentProps) {
     email = email.trim();
     password = password.trim();
 
-    const emailIsValid = email.includes('@');
-    const passwordIsValid = password.length > 6;
+    const emailIsValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    const passwordIsValid = password.length >= 6;
 
 
     if (
@@ -60,6 +61,9 @@ export function AuthContent({ isLogin, onAuthenticate }: AuthContentProps) {
 
   return (
     <View>
+      <Title>
+      {isLogin ? 'Login' : 'Sing Up'}
+      </Title>
       <AuthForm
         isLogin={isLogin}
         onSubmit={submitHandler}
@@ -67,10 +71,30 @@ export function AuthContent({ isLogin, onAuthenticate }: AuthContentProps) {
       />
       <View>
         <FlatButton onPress={switchAuthModeHandler}>
-          {isLogin ? 'Create a new user' : 'Log in instead'}
+          {isLogin ? 'Forgot your password?' : 'Already have an account?'}
         </FlatButton>
+        <View style={styles.guide}>
+          <TextGuide>
+           {isLogin ? 'Or login with social account' : 'Or sign up with social account'}
+          </TextGuide>
+          <View style={styles.socials}>
+            <Image source={require('../assets/Google.png')}/>
+            <Image source={require('../assets/Facebook.png')}/>
+          </View>
+        </View>
       </View>
     </View>
   );
 }
+const styles = StyleSheet.create({
+  guide: {
+    marginTop: 133,
+    alignItems: 'center',
+  },
+  socials: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  }
+})
 

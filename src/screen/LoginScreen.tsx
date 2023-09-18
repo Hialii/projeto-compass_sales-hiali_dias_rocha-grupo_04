@@ -1,7 +1,7 @@
 import React, {useState, useContext} from 'react';
 import LoadingOverlay from '../component/LoadingOverlay';
 import { AuthContent } from '../auth/AuthContent';
-import {signInWithEmailPassword} from '../firebase/auth';
+import {signInWithEmailPassword} from '../firebase/auth1';
 import {Alert} from 'react-native';
 import { AuthContext } from '../context/NavigationContext';
 
