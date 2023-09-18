@@ -10,7 +10,7 @@ export function FlatButton({children, onPress}: FlatButton) {
    return (
       <Pressable onPress={onPress}>
          <View style={styles.flatButtonContainer}>
-            <Text>{children}</Text>
+            <Text style={styles.text}>{children}</Text>
          </View>
       </Pressable>
       )
@@ -19,5 +19,9 @@ export function FlatButton({children, onPress}: FlatButton) {
 const styles = StyleSheet.create({
    flatButtonContainer: {
       margin: 16,
+   },
+   text: {
+      color: '#000',
+      fontWeight: 'bold'
    }
 })

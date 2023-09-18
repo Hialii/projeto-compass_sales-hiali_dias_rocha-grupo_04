@@ -60,7 +60,7 @@ export function AuthForm({ isLogin, onSubmit, credentialsInvalid }: AuthForm) {
         isInvalid={passwordIsInvalid}
       />
       <View>
-        <Button onPress={submitHandler}>
+        <Button onPress={submitHandler} >
           {isLogin ? 'Log In' : 'Sign Up'}
         </Button>
       </View>

@@ -1,55 +1,49 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { LoginScreen } from './src/screen/LoginScreen';
 import { SignUpScreen } from './src/screen/SignUpScreen';
-import { COLORS } from './src/constants/COLORS';
+import { AuthContext, AuthContextProvider } from './src/context/NavigationContext';
+import { HomePage } from './src/screen/HomePage';
 
 
 const Stack = createNativeStackNavigator();
 
 function AuthStack() {
   return (
-    <Stack.Navigator
-      screenOptions={{
-        headerStyle: { backgroundColor: COLORS.primary  },
-        headerTintColor: 'white',
-        contentStyle: { backgroundColor: COLORS.primary },
-      }}
-    >
-      <Stack.Screen name="Login" component={LoginScreen} />
-      <Stack.Screen name="SignUp" component={SignUpScreen} />
+    <Stack.Navigator>
+      <Stack.Screen name="SignUp" component={SignUpScreen}  options={{ headerShown: false }}/>
+      <Stack.Screen name="Login" component={LoginScreen}  options={{ headerShown: false }}/>
     </Stack.Navigator>
   );
 }
 
-// function AuthenticatedStack() {
-//   return (
-//     <Stack.Navigator
-//       screenOptions={{
-//         headerStyle: { backgroundColor: COLORS.primary  },
-//         headerTintColor: 'white',
-//         contentStyle: { backgroundColor: COLORS.primary  },
-//       }}
-//     >
-//       <Stack.Screen name="Welcome" component={HomePage} />
-//     </Stack.Navigator>
-//   );
-// }
+function AuthenticatedStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Welcome" component={HomePage} options={{ headerShown: false }}/>
+    </Stack.Navigator>
+  );
+}
 
 function Navigation() {
+    const authCtx = useContext(AuthContext);
+
   return (
-    <NavigationContainer>
-      <AuthStack />
-    </NavigationContainer>
+      <NavigationContainer>
+        {!authCtx.isAuthenticated && <AuthStack />}
+        {authCtx.isAuthenticated && <AuthenticatedStack />}
+      </NavigationContainer>
   );
 }
 
 export default function App() {
   return (
     <>
-      <Navigation />
+      <AuthContextProvider>
+        <Navigation />
+      </AuthContextProvider>
     </>
   );
 }
