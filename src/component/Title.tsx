@@ -16,6 +16,7 @@ export function Title({children}: Title) {
 const styles = StyleSheet.create({
    titleContainer: {
       margin: 14,
+      marginBottom: 58,
    },
    text: {
       fontSize: 34,

@@ -1,5 +1,5 @@
 import React, {ReactNode} from 'react';
-import { Pressable, View, Text, StyleSheet } from 'react-native';
+import { Pressable, View, Text, StyleSheet, Image} from 'react-native';
 
 
 interface FlatButton {
@@ -11,6 +11,7 @@ export function FlatButton({children, onPress}: FlatButton) {
       <Pressable onPress={onPress}>
          <View style={styles.flatButtonContainer}>
             <Text style={styles.text}>{children}</Text>
+            <Image source={require('../assets/Vector.png')}/>
          </View>
       </Pressable>
       )
@@ -19,9 +20,12 @@ export function FlatButton({children, onPress}: FlatButton) {
 const styles = StyleSheet.create({
    flatButtonContainer: {
       margin: 16,
+      flexDirection: 'row',
+      justifyContent: 'flex-end',
+      alignItems: 'center'
    },
    text: {
       color: '#000',
       fontWeight: '500',
-   }
+   },
 })

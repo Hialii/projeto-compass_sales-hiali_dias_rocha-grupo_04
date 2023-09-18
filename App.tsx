@@ -7,7 +7,8 @@ import { SignUpScreen } from './src/screen/SignUpScreen';
 import { AuthContext, AuthContextProvider } from './src/context/NavigationContext';
 import { HomePage } from './src/screen/HomePage';
 import { ForgotPasswordScreen } from './src/screen/ForgotPasswordScreen';
-import {ExitIconButton} from './src/component/ExitIconButton'
+import {ExitIconButton} from './src/component/ExitIconButton';
+import { StatusBar } from 'react-native';
 
 
 const Stack = createNativeStackNavigator();
@@ -45,6 +46,10 @@ function Navigation() {
 export default function App() {
   return (
     <>
+    <StatusBar
+          backgroundColor="#EEEEEE"
+          barStyle="dark-content"
+        />
       <AuthContextProvider>
         <Navigation />
       </AuthContextProvider>
