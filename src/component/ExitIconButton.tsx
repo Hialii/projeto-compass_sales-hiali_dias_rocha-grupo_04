@@ -8,7 +8,7 @@ interface ExitIconButton {
 export function ExitIconButton({onPress}) {
    return (
    <Pressable onPress={onPress}>
-     <Image source={require('../assets/Logout.png')}/>
+     <Image source={require('../assets/images/Logout.png')}/>
    </Pressable>
    )
 }

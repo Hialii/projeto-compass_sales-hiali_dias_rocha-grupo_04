@@ -16,9 +16,9 @@ const Stack = createNativeStackNavigator();
 function AuthStack() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="SignUp" component={SignUpScreen}  options={{  title: '', headerStyle: {backgroundColor: '#EEEEEE'} }}/>
-      <Stack.Screen name="Login" component={LoginScreen}  options={{ title: '',  headerStyle: {backgroundColor: '#EEEEEE'} }}/>
-      <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} options={{ title: '',  headerStyle: {backgroundColor: '#EEEEEE'}}}/>
+      <Stack.Screen name="SignUp" component={SignUpScreen}  options={{  headerShadowVisible: false, title: '', headerStyle: {backgroundColor: '#f3f3f3'} }}/>
+      <Stack.Screen name="Login" component={LoginScreen}  options={{  headerShadowVisible: false, title: '',  headerStyle: {backgroundColor: '#f3f3f3'} }}/>
+      <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} options={{title: '', headerShadowVisible: false, headerStyle: {backgroundColor: '#f3f3f3'}}}/>
       </Stack.Navigator>
   )
 }
@@ -27,7 +27,7 @@ function AuthenticatedStack() {
   const authCtx = useContext(AuthContext)
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Welcome" component={HomePage} options={{ title: '', headerStyle: {backgroundColor: '#EEEEEE'}, headerRight: () => <ExitIconButton onPress={authCtx.logout} />}}/>
+      <Stack.Screen name="Welcome" component={HomePage} options={{ headerShadowVisible: false, title: '', headerStyle: {backgroundColor: '#f3f3f3'}, headerRight: () => <ExitIconButton onPress={authCtx.logout} />}}/>
     </Stack.Navigator>
   );
 } 

@@ -16,6 +16,7 @@ export function TextGuide({children}: TextGuide) {
 
 const styles = StyleSheet.create({
    text: {
+      fontFamily: 'Roboto',
       color: '#000',
       lineHeight: 20,
       fontSize: 14,

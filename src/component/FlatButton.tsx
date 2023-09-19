@@ -11,7 +11,7 @@ export function FlatButton({children, onPress}: FlatButton) {
       <Pressable onPress={onPress}>
          <View style={styles.flatButtonContainer}>
             <Text style={styles.text}>{children}</Text>
-            <Image source={require('../assets/Vector.png')}/>
+            <Image style={styles.image} source={require('../assets/images/Vector.png')}/>
          </View>
       </Pressable>
       )
@@ -28,4 +28,7 @@ const styles = StyleSheet.create({
       color: '#000',
       fontWeight: '500',
    },
+   image: {
+      marginLeft: 8
+   }
 })

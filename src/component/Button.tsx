@@ -9,7 +9,7 @@ interface Button {
 export function Button({children, onPress}: Button) {
    return (
    <Pressable style={styles.button} onPress={onPress}>
-      <View>
+      <View >
          <Text style={styles.buttonText}>{children}</Text>
       </View>
    </Pressable>

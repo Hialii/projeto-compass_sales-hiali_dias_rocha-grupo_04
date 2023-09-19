@@ -62,24 +62,24 @@ export function AuthContent({ isLogin, onAuthenticate }: AuthContentProps) {
   return (
     <View>
       <Title>
-      {isLogin ? 'Login' : 'Sing Up'}
+      {isLogin ? 'Login' : 'Sign up'}
       </Title>
       <AuthForm
         isLogin={isLogin}
         onSubmit={submitHandler}
         credentialsInvalid={credentialsInvalid}
       />
-      <View>
         <FlatButton onPress={switchAuthModeHandler}>
           {isLogin ? 'Forgot your password?' : 'Already have an account?'}
         </FlatButton>
+      <View>
         <View style={styles.guide}>
           <TextGuide>
            {isLogin ? 'Or login with social account' : 'Or sign up with social account'}
           </TextGuide>
           <View style={styles.socials}>
-            <Image source={require('../assets/Google.png')}/>
-            <Image source={require('../assets/Facebook.png')}/>
+            <Image source={require('../assets/images/Google.png')}/>
+            <Image source={require('../assets/images/Facebook.png')}/>
           </View>
         </View>
       </View>
@@ -88,7 +88,7 @@ export function AuthContent({ isLogin, onAuthenticate }: AuthContentProps) {
 }
 const styles = StyleSheet.create({
   guide: {
-    marginTop: 133,
+    marginVertical: 80,
     alignItems: 'center',
   },
   socials: {
