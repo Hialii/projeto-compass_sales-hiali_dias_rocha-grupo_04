@@ -9,16 +9,16 @@ The project uses Firebase as a backend for authentication and data storage.
 
 ## Features
 - **User Registration:** Users can register by providing an email address and a valid password.
-<img scr="./src/assets/images/SingupScreen.jpeg">
+![Signup Screen](/src/assets/images/SingupScreen.jpeg)
 
 - **Login:** Registered users can log in using their email credentials and password.
-<img scr="./src/assets/images/LoginScreen.jpeg">
+![Login Sreen](/src/assets/images/LoginScreen.jpeg)
 
 - **Forgot password:** the user can change the password from an email sent by Firebase
-<img scr="./src/assets/images/ForgotPasswordScreen.jpeg">
+![Forgot password](/src/assets/images/ForgotPasswordScreen.jpeg)
 
 - **Home Page:**  The logged in user can have access to the home page
-<img scr="./src/assets/images/HomePage.jpeg">
+![Home Page](/src/assets/images/HomePage.jpeg)
 
 - **Firebase Integration:** The project uses Firebase Authentication for user authentication
 
